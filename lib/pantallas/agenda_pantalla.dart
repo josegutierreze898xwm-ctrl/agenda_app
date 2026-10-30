@@ -20,9 +20,9 @@ class _AgendaPantallaState extends State<AgendaPantalla> {
   Future<void> guardarActividad(BuildContext context) async{
     //ingresamos nuestro primer registro
     Map<String, dynamic> nuevaActividad = {
-      'fecha' : '',
-      'titulo' : '',
-      'detalle' : '',
+      'fecha' : textFecha.text,
+      'titulo' : textTitulo.text,
+      'detalle' : textdetalles.text,
     };
 
     try {
