@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_agenda/database_helper.dart';
+import 'package:flutter_agenda/pantallas/lista_citas_pantalla.dart';
 
 class AgendaPantalla extends StatefulWidget {
   const AgendaPantalla({super.key});
@@ -25,6 +26,8 @@ class _AgendaPantallaState extends State<AgendaPantalla> {
       'detalle' : textdetalles.text,
     };
 
+    //listar cita
+
     try {
       // Llamamos al método que acabamos de crear en el Helper
       int idReg = await DatabaseHelper.instance.insertarActividad(nuevaActividad);
@@ -44,6 +47,17 @@ class _AgendaPantallaState extends State<AgendaPantalla> {
           backgroundColor: Colors.red,
         ),
       );
+      
+      textTitulo.clear();
+      textdetalles.clear();
+       Future.delayed(const Duration(seconds: 1),(){
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => ListaCitasPantalla(),
+          )
+       );
+       } );
 
     }
   }
@@ -51,6 +65,12 @@ class _AgendaPantallaState extends State<AgendaPantalla> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pushAndRemoveUntil(
+              context, MaterialPageRoute(builder: (context)=> const ListaCitasPantalla()),(route)=> false,);
+          }, 
+          icon: Icon(Icons.keyboard_return)),
         backgroundColor: Colors.amberAccent,     
         title: Text('Agenda', style: TextStyle(letterSpacing: 10),),
       ),

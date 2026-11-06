@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_agenda/pantallas/agenda_pantalla.dart';
+import 'package:flutter_agenda/pantallas/lista_citas_pantalla.dart';
 import 'database_helper.dart';
 
 
@@ -16,7 +17,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AgendaPantalla()
+      home: ListaCitasPantalla()
     );
   }
 }

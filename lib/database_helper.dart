@@ -42,7 +42,7 @@ Future<int> insertarActividad (Map<String, dynamic> row)async{
 }
 
 
-Future<List     <Map<String, dynamic>>> obtenerUbicaciones() async {
+Future<List     <Map<String, dynamic>>> obtenerActividad() async {
   final db = await instance.database;
   
   return await db.query('agenda', orderBy: 'agenda_id DESC');

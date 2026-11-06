@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_agenda/database_helper.dart';
+import 'package:flutter_agenda/pantallas/agenda_pantalla.dart';
 
 class ListaCitasPantalla extends StatefulWidget {
   const ListaCitasPantalla({super.key});
@@ -35,7 +36,6 @@ class _ListaCitasPantallaState extends State<ListaCitasPantalla> {
               itemCount: citas.length,
               itemBuilder: (context, index) {
                 final cita = citas[index];
-
                 return Card(
                   margin: const EdgeInsets.symmetric(
                     horizontal: 10,
@@ -91,6 +91,24 @@ class _ListaCitasPantallaState extends State<ListaCitasPantalla> {
                 );
               },
             ),
+            floatingActionButton:FloatingActionButton(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white,
+              elevation: 5,
+              onPressed: (){
+                 Future.delayed(const Duration(seconds: 1),(){
+                 Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+            builder: (_) => AgendaPantalla(),
+          )
+       );
+       } );
+
+
+              },
+              child: const Icon(Icons.add, size: 30,),
+              ),
     );
   }
 }
